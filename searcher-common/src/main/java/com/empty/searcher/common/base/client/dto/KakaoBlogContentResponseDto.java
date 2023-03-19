@@ -7,7 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -38,26 +38,32 @@ public class KakaoBlogContentResponseDto {
         private String title;
         private String contents;
         private String url;
+
+        @JsonProperty("blogname")
         private String blogName;
         private String thumbnail;
-        private LocalDateTime dateTime;
+
+        @JsonProperty("datetime")
+        private Date dateTime;
+
+        public BlogDocument to() {
+            return BlogDocument.builder()
+                .title(this.getTitle())
+                .description(this.getContents())
+                .linkUrl(this.getUrl())
+                .blogName(this.getBlogName())
+                .updatedAt(this.getDateTime())
+                .build();
+        }
     }
 
-    public BlogContent to() {
-
-        List<BlogDocument> docList = this.documents.stream().map(item -> {
-            return BlogDocument.builder()
-                .title(item.getTitle())
-                .description(item.getContents())
-                .linkUrl(item.getUrl())
-                .blogName(item.getBlogName())
-                .updatedAt(item.getDateTime())
-                .build();
-        }).collect(Collectors.toList());
+    public BlogContent to(int offset, int size) {
 
         return BlogContent.builder()
-            .totalCount(this.meta.getTotalCount())
-            .documents(docList)
+            .totalCount(this.meta.getPageableCount())
+            .offset(offset)
+            .size(size)
+            .documents(this.getDocuments().stream().map(Document::to).collect(Collectors.toList()))
             .build();
     }
 }

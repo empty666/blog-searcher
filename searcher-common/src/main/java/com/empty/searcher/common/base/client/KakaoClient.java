@@ -2,14 +2,13 @@ package com.empty.searcher.common.base.client;
 
 import com.empty.searcher.common.base.client.config.KakaoClientHeadersConfig;
 import com.empty.searcher.common.base.client.dto.KakaoBlogContentResponseDto;
-import feign.Headers;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Repository
-@FeignClient(name = "kakao-open-api", url = "https://dapi.kakao.com",  configuration = KakaoClientHeadersConfig.class)
+@FeignClient(name = "kakao-open-api", url = "${blog-searcher.client.host.kakao}",  configuration = KakaoClientHeadersConfig.class)
 public interface KakaoClient {
 
     @GetMapping("/v2/search/blog")

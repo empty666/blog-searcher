@@ -1,11 +1,11 @@
 package com.empty.searcher.common.domain.search.dto;
 
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter
+@Data
 @Builder
 public class BlogContent {
 
@@ -13,6 +13,11 @@ public class BlogContent {
     private int totalPage;
     private int offset;
     private int size;
+
+
+    public int getTotalPage() {
+        return this.totalCount / this.size + (this.totalCount % this.size == 0 ? 0  : 1);
+    }
 
     private List<BlogDocument> documents;
 }

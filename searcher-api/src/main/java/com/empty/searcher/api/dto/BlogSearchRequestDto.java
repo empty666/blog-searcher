@@ -1,5 +1,6 @@
 package com.empty.searcher.api.dto;
 
+import com.empty.searcher.common.domain.search.dto.BlogSearchSort;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,5 +16,5 @@ public class BlogSearchRequestDto {
     private Integer size;
 
     private List<String> query;
-    private String sort;
+    private BlogSearchSort sort;
 }
