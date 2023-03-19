@@ -24,7 +24,7 @@ spring:
 blog-searcher:
   client:
     host:
-      kakao: https://dapi.kakao112.com
+      kakao: https://dapi.kakao.com
       naver: https://openapi.naver.com
 
     rest-api-key:
