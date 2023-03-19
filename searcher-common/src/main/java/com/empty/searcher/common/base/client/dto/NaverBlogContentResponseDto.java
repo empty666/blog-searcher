@@ -49,9 +49,7 @@ public class NaverBlogContentResponseDto {
 
     public BlogContent to() {
         return BlogContent.builder()
-            .totalCount(total)
-            .offset(start)
-            .size(display)
+            .pagination(BlogContent.BlogPagination.builder().totalCount(this.getTotal()).offset(this.getStart()).size(this.getDisplay()).build())
             .documents(this.getItems().stream().map(Item::to).collect(Collectors.toList()))
             .build();
     }

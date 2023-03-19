@@ -60,9 +60,7 @@ public class KakaoBlogContentResponseDto {
     public BlogContent to(int offset, int size) {
 
         return BlogContent.builder()
-            .totalCount(this.meta.getPageableCount())
-            .offset(offset)
-            .size(size)
+            .pagination(BlogContent.BlogPagination.builder().totalCount(this.getMeta().getPageableCount()).offset(offset).size(size).build())
             .documents(this.getDocuments().stream().map(Document::to).collect(Collectors.toList()))
             .build();
     }

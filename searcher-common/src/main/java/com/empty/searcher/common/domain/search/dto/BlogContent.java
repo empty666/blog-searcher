@@ -9,15 +9,20 @@ import java.util.List;
 @Builder
 public class BlogContent {
 
-    private int totalCount;
-    private int totalPage;
-    private int offset;
-    private int size;
+    private BlogPagination pagination;
+    private List<BlogDocument> documents;
 
+    @Data
+    @Builder
+    public static class BlogPagination {
+        private int totalCount;
+        private int totalPage;
+        private int offset;
+        private int size;
 
-    public int getTotalPage() {
-        return this.totalCount / this.size + (this.totalCount % this.size == 0 ? 0  : 1);
+        public int getTotalPage() {
+            return this.totalCount / this.size + (this.totalCount % this.size == 0 ? 0  : 1);
+        }
     }
 
-    private List<BlogDocument> documents;
 }
