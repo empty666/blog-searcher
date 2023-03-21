@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -31,18 +30,6 @@ public class RecentKeywordService {
         if (resultCnt == 0) {
             this.saveRecentKeyword(keyword);
         }
-    }
-
-    @Transactional
-    public void increaseHitCountByKeywords(Collection<String> keywords) {
-        List<String> recentKeywords =  repository.findAllByKeywordIn(keywords).stream().map(RecentKeyword::getKeyword).collect(Collectors.toList());
-        long resultCnt = repository.updateHitCountIncreaseByKeywordIn(keywords);
-
-        log.info("Before : {}",  keywords);
-        keywords.removeAll(recentKeywords);
-        log.info("After : {}",  keywords);
-
-        this.saveRecentKeywords(keywords);
     }
 
     @Transactional

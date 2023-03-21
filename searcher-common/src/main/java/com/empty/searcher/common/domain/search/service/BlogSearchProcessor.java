@@ -41,7 +41,7 @@ public class BlogSearchProcessor {
             }
         }
 
-        return null;
+        return BlogContent.emptyContent(param.getSize());
     }
 
     private String parseQueryString(List<String> queries) {
