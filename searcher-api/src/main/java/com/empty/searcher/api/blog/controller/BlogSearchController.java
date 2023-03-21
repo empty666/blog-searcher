@@ -6,6 +6,7 @@ import com.empty.searcher.common.domain.search.dto.BlogContent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -16,7 +17,7 @@ public class BlogSearchController {
     private final BlogSearchApplication application;
 
     @GetMapping("/v1/search")
-    public BlogContent findAllContentsByRequest(BlogSearchRequestDto requestDto) {
+    public @ResponseBody BlogContent findAllContentsByRequest(BlogSearchRequestDto requestDto) {
         return application.searchBlogContent(requestDto);
     }
 }

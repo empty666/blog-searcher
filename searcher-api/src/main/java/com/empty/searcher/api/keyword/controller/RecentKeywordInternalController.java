@@ -19,11 +19,6 @@ public class RecentKeywordInternalController {
 
     private final RecentKeywordApplication application;
 
-    @PostMapping("/v1")
-    public @ResponseBody RecentKeywordResponseDto insertRecentKeyword(@RequestBody String keyword) {
-        return application.insertSearchKeyword(keyword);
-    }
-
     @PostMapping("/v1/create")
     public @ResponseBody List<RecentKeywordResponseDto> insertRecentKeyword(@RequestBody Collection<String> keywords) {
         return application.insertSearchKeywords(keywords);

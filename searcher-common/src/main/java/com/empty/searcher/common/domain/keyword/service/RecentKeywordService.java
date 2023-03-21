@@ -33,8 +33,8 @@ public class RecentKeywordService {
     }
 
     @Transactional
-    public RecentKeyword saveRecentKeyword(String keyword) {
-        return repository.save(RecentKeyword.createRecentKeyword(keyword));
+    public void saveRecentKeyword(String keyword) {
+        repository.save(RecentKeyword.createRecentKeyword(keyword));
     }
 
     @Transactional

@@ -11,6 +11,4 @@ import java.util.List;
 public interface RecentKeywordRepository extends JpaRepository<RecentKeyword, String>, RecentKeywordRepositoryCustom {
 
     List<RecentKeyword> findTop10ByOrderByHitCountDesc();
-    List<RecentKeyword> findAllByKeywordIn(Collection<String> keywords);
-    RecentKeyword findByKeyword(String keyword);
 }

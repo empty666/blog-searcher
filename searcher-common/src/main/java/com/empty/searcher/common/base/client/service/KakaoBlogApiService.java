@@ -1,5 +1,6 @@
-package com.empty.searcher.common.base.client;
+package com.empty.searcher.common.base.client.service;
 
+import com.empty.searcher.common.base.client.KakaoClient;
 import com.empty.searcher.common.base.client.dto.KakaoBlogContentResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

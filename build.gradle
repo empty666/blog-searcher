@@ -1,0 +1,80 @@
+buildscript {
+    ext {
+        springBootVersion="2.7.9"
+        queryDslPluginVersion="1.0.10"
+    }
+
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+        classpath "io.spring.gradle:dependency-management-plugin:1.1.0"
+        classpath "gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:${queryDslPluginVersion}"
+
+    }
+}
+
+subprojects {
+    apply plugin: "java"
+    apply plugin: "org.springframework.boot"
+    apply plugin: "io.spring.dependency-management"
+
+    sourceCompatibility="11"
+
+    repositories {
+        mavenCentral()
+    }
+
+    compileJava.dependsOn(processResources)
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:2021.0.6"
+        }
+
+        dependencies {
+            dependencySet(group: "org.springframework.boot", version: "${springBootVersion}") {
+                entry "spring-boot-starter-test"
+                entry "spring-boot-starter-web"
+                entry "spring-boot-starter-jdbc"
+                entry "spring-boot-starter-data-jpa"
+                entry "spring-boot-starter-data-redis"
+                entry "spring-boot-dev-tools"
+            }
+
+            dependencySet(group: "com.querydsl", version: "5.0.0") {
+                entry "querydsl-core"
+                entry "querydsl-jpa"
+                entry "querydsl-apt"
+            }
+
+            dependencySet(group: "org.projectlombok", version: "1.18.26") {
+                entry "lombok"
+            }
+        }
+    }
+
+    dependencies {
+        compileOnly "org.projectlombok:lombok"
+        annotationProcessor "org.projectlombok:lombok"
+
+        implementation "org.apache.logging.log4j:log4j-api:2.20.0"
+        implementation "org.apache.logging.log4j:log4j-to-slf4j:2.20.0"
+
+        implementation "org.springframework.cloud:spring-cloud-starter-openfeign:3.1.6"
+        implementation "it.ozimov:embedded-redis:0.7.2"
+
+        testImplementation "org.springframework.boot:spring-boot-starter-test"
+        testImplementation "org.spockframework:spock-core:2.0-groovy-3.0"
+        testImplementation "org.spockframework:spock-spring:2.0-groovy-3.0"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
+

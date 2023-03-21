@@ -1,6 +1,6 @@
 package com.empty.searcher.common.domain.search.service.impl;
 
-import com.empty.searcher.common.base.client.KakaoBlogApiService;
+import com.empty.searcher.common.base.client.service.KakaoBlogApiService;
 import com.empty.searcher.common.domain.search.dto.BlogContent;
 import com.empty.searcher.common.domain.search.dto.BlogSearchSort;
 import com.empty.searcher.common.domain.search.service.BlogSearchService;
