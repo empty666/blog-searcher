@@ -5,7 +5,6 @@ import com.empty.searcher.common.domain.keyword.service.RecentKeywordService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 

@@ -36,10 +36,4 @@ public class RecentKeywordService {
     public void saveRecentKeyword(String keyword) {
         repository.save(RecentKeyword.createRecentKeyword(keyword));
     }
-
-    @Transactional
-    public List<RecentKeyword> saveRecentKeywords(Collection<String> keywords) {
-        List<RecentKeyword> datas = keywords.stream().map(RecentKeyword::createRecentKeyword).collect(Collectors.toList());
-        return repository.saveAll(datas);
-    }
 }
