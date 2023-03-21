@@ -7,7 +7,7 @@ Blog Searcher Application
 
 
 **Github Repository URL : https://github.com/empty666/blog-searcher.git**  
-**Jar File Download Link :**
+**Jar File Download Link : https://github.com/empty666/blog-searcher/raw/master/jars/searcher-api-1.0-SNAPSHOT.jar**
 - - -
 - - -
 ## API Guide
