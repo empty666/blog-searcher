@@ -9,6 +9,15 @@ Blog Searcher Application
 **Github Repository URL : https://github.com/empty666/blog-searcher.git**  
 **Jar File Download Link : https://github.com/empty666/blog-searcher/raw/master/jars/searcher-api-1.0-SNAPSHOT.jar**
 - - -
+## Library 사용 정보
+* QueryDSL (Version 5.0.0)
+  * 데이터베이스에 접근하여 데이터 처리를 위해 사용 하였습니다.
+* OpenFeign
+  * 카카오, 네이버 등 외부 API를 호출하기 위해 사용 하였습니다. 
+* Embedded Redis
+  * 동시성 이슈를 해소하기 위해 Redis 운용이 필요하여 Embedded Redis를 활용 하였습니다. 
+* Spock
+  * Unit Test Code를 작성하기 위해 사용하였습니다. 
 - - -
 ## API Guide
 Blog Searcher에서 제공하는 API의 목록과 정보입니다.
