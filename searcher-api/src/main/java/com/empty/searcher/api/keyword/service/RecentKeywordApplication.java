@@ -15,10 +15,6 @@ import java.util.stream.Collectors;
 public class RecentKeywordApplication {
     private final RecentKeywordService keywordService;
 
-    public List<RecentKeywordResponseDto> insertSearchKeywords(Collection<String> keywords) {
-        return keywordService.saveRecentKeywords(keywords).stream().map(RecentKeywordResponseDto::from).collect(Collectors.toList());
-    }
-
     public List<RecentKeywordResponseDto> findTop10RecentKeyword() {
         return keywordService.getRecentTop10Keyword().stream().map(RecentKeywordResponseDto::from).collect(Collectors.toList());
     }
