@@ -1,7 +1,7 @@
-package com.empty.searcher.api.controller;
+package com.empty.searcher.api.blog.controller;
 
-import com.empty.searcher.api.dto.BlogSearchRequestDto;
-import com.empty.searcher.api.service.BlogSearchApplication;
+import com.empty.searcher.api.blog.dto.BlogSearchRequestDto;
+import com.empty.searcher.api.blog.service.BlogSearchApplication;
 import com.empty.searcher.common.domain.search.dto.BlogContent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

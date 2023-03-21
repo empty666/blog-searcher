@@ -1,4 +1,4 @@
-package com.empty.searcher.api.dto;
+package com.empty.searcher.api.blog.dto;
 
 import com.empty.searcher.common.domain.search.dto.BlogSearchSort;
 import lombok.AllArgsConstructor;

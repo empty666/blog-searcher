@@ -1,4 +1,4 @@
-package com.empty.searcher.api.controller;
+package com.empty.searcher.api.blog.controller;
 
 import com.empty.searcher.common.base.client.NaverClient;
 import com.empty.searcher.common.base.client.dto.NaverBlogContentResponseDto;
